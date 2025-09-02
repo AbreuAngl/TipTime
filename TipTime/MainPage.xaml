@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TipTime.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="Valor: "/>
+
+            <Entry
+                x:Name="ValorTotalEntry"
+                Placeholder="Digite o valor total"/>
+
+            <Label
+                Text="Gorjeta"/>
+            <Label
+                x:Name="ValorGorjetaLabel"
+                Text="0.00"/>
+
+            <Label
+                Text="Valor Final"/>
+            <Label
+                x:Name="ValorTotalLabel"
+                Text="0.00"/>
+
+            <Label
+                Text="Porcentagem da gorjeta"/>
+            <Label
+                x:Name="PorcentagemGorjeta"
+                Text="0%"/>
+            <Slider Maximum="100" Minimum="0"
+                x:Name="PorcentagemSlider"
+                ValueChanged="PorcentagemSlider_ValueChanged"/>
+
+            <Button
+                x:Name="Por15Btn"
+                Text="15%" 
+                Clicked="Por15Btn_Clicked"/>
+
+            <Button
+                x:Name="Por20Btn"
+                Text="20%" 
+                Clicked="Por20Btn_Clicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="ArredondaCimaBtn"
+                Text="Arredondar para cima"
+                Clicked="ArredondaCimaBtn_Clicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="ArredondaBaixoBtn"
+                Text="Arredondar para baixo"
+                Clicked="ArredondaBaixoBtn_Clicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
