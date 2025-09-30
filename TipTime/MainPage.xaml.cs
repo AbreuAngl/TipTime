@@ -7,6 +7,8 @@
         public MainPage()
         {
             InitializeComponent();
+            //ValorTotalEntry.Text = "0";
+            PorcentagemSlider.Value = 15;
         }
 
 
@@ -32,10 +34,23 @@
 
         private void PorcentagemSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            double total = double.Parse(ValorTotalEntry.Text);
-            int porcentagem = int.Parse(PorcentagemSlider.Text);
-            int gorjeta = int.Parse(PorcentagemGorjeta.Text);
-            gorjeta = total * (porcentagem / 100);
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(ValorTotalEntry.Text))
+                {
+                    double porcentagem = PorcentagemSlider.Value;
+                    PorcentagemGorjeta.Text = porcentagem.ToString("f");
+                    double ValorTotal = double.Parse(ValorTotalEntry.Text);
+                    double gorjeta = ValorTotal * (porcentagem / 100);
+                    ValorGorjetaLabel.Text = gorjeta.ToString("c");
+                    ValorTotalLabel.Text = $"R$ {ValorTotal}";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                DisplayAlert("Erro", "Digite um valor numerico", "Ok");         
+            }
 
 
 
